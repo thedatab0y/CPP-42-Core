@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ctype.h>
 
 void to_UpperCase(char *str)
 {
