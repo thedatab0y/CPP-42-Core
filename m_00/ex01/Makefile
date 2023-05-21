@@ -1,6 +1,6 @@
 NAME = phoneBook
 
-SRCS = contact.cpp phoneBook.cpp main.cpp
+SRCS = contact.cpp PhoneBook.cpp main.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CC = c++
