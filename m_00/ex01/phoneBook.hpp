@@ -1,19 +1,20 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include "contact.hpp"
+#include "Contact.hpp"
 #include <iomanip>
 
-class PhoneBook
-{
-	private:
-		Contact storage[8];
-	
+class PhoneBook {
 	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-		void addContact(void);
-		void show(void);
+		PhoneBook();
+		void welcomeMessage();
+		void Add();
+		void searchContact();
+		void printData();
+		void showInfo();
+	private:
+		Contact book[8];
+		int		nb_contact;
 };
 
 #endif

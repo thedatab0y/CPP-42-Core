@@ -1,38 +1,30 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iomanip>
 
 int main(void)
 {
-	PhoneBook phonebook;
+	std::string buffer; // store user input
+	PhoneBook book; // instance of PhoneBook class
 
-	std::string input;
-
-	while (true)
+	book.welcomeMessage(); // display a welcome message
+	while (buffer != "EXIT") // loop till user enters "EXIT"
 	{
-		std::cout << "Possible options: ADD, SEARCH or EXIT" << std::endl;
-
-		std::cout << "> ";
-
-		std::getline(std::cin, input);
-
-		if (input == "ADD")
-		{
-			std::cout << "Adding." << std::endl;
-
-			phonebook.addContact();
-		}
-
-		else if (input == "SEARCH")
-		{
-			std::cout << "Searching." << std::endl;
-			phonebook.show();
-		}
-		else if (input == "EXIT")
-		{
+		if (std::cin.eof())
 			break;
+		std::cout << "> ";
+		std::cin >> buffer; // read user input into buffer
+		if (buffer == "ADD") //checking the value of buffer
+			book.Add();
+		else if (buffer == "SEARCH")
+			book.searchContact();
+		else if (buffer != "EXIT" && !std::cin.eof())
+		{
+			std::cout << "Sorry, but the command \033[31m[" << buffer << "]\033[0m does not exit." << std::endl;
+			std::cout << "Try one of the following: ADD, SEARCH or EXIT" << std::endl;
 		}
 	}
+	std::cout << "\033[33mLooking forward to seeing you again\033[0m" << std::endl;
 
 	return (0);
 }

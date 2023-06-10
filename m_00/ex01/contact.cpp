@@ -1,53 +1,88 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 
 // :: scope resolution operator
 
-Contact::Contact (void)
+void Contact::init()
 {
-	std::cout << "Contact constructor called" << std::endl;
-	first_name = "";
-	last_name = "";
-	nick_name = "";
-	phone_number = "";
-	secret = "";
+	if (!std::cin.eof())
+		std::cout << "Please enter a first name: ";
+	std::cin >> this->FirstName;
+	if (!std::cin.eof())
+		std::cout << "Please enter a last name: ";
+	std::cin >> this->LastName;
+	if (!std::cin.eof())
+		std::cout << "Please enter a nickname: ";
+	std::cin >> this->Nickname;
+	if (!std::cin.eof())
+		std::cout << "Please enter a phone number: ";
+	std::cin >> this->PhoneNumber;
+	if (!std::cin.eof())
+		std::cout << "Please enter the darkest secret: ";
+	std::cin >> this->DarkestSecret;
+	if (!std::cin.eof())
+		std::cout << "--- User has been added successfully! ---" << std::endl;
 }
 
-Contact::~Contact (void)
+void Contact::printFullInfo()
 {
-	std::cout << "Contact destructor called" << std::endl;
+	std::cout << std::endl << "Here are the pieces of information I have : " << std::endl;
+	std::cout << " First Name : " << this->getFirstName() << std::endl;
+	std::cout << " Last name : " << this->getLastName() << std::endl;
+	std::cout << " Nickname : " << this->getNickname() << std::endl;
+	std::cout << " Phone Number : " << this->getPhoneNumber() << std::endl;
+	std::cout << " Darkest secret : " << this->getDarkestSecret() << std::endl;
 }
 
-// function "getin" that promts the user for input
-static std::string getin(const std::string prompt)
+//setter
+void Contact::setFirstName(std::string value)
 {
-	std::string input = "";
-
-	do
-	{
-		std::cout << prompt;
-		std::getline(std::cin, input);
-		if(!std::cin)
-			input = "";
-		std::cout << input << std::endl;
-	}
-	while (input == "");
-	return (input);
+	FirstName = value;
 }
 
-void Contact::create(void)
+//getter
+std::string Contact::getFirstName()
 {
-	this->first_name = getin("First name: ");
-	this->last_name = getin("Last name: ");
-	this->nick_name = getin("Nickname: ");
-	this->phone_number = getin("Phone number: ");
-	this->secret = getin("Darkest Secret: ");
+	return FirstName;
 }
 
-void Contact::show(void)
+//setter
+void Contact::setLastName(std::string value)
 {
-	std::cout << first_name << std::endl;
-	std::cout << last_name << std::endl;
-	std::cout << nick_name << std::endl;
-	std::cout << phone_number << std::endl;
-	std::cout << secret << std::endl;
+	LastName = value;
+}
+
+//getter
+std::string Contact::getLastName()
+{
+	return LastName;
+}
+
+void Contact::setNickname(std::string value)
+{
+	Nickname = value;
+}
+
+std::string Contact::getNickname()
+{
+	return Nickname;
+}
+
+void Contact::setPhoneNumber(std::string value)
+{
+	PhoneNumber = value;
+}
+
+std::string Contact::getPhoneNumber()
+{
+	return PhoneNumber;
+}
+
+void Contact::setDarkestSecret(std::string value)
+{
+	DarkestSecret = value;
+}
+
+std::string Contact::getDarkestSecret()
+{
+	return DarkestSecret;
 }
