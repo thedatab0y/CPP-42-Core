@@ -12,7 +12,7 @@ int main() {
         john.incrementGrade();
         std::cout << "After increment: " << john << std::endl;
 
-        // Try to decrement the grade (should work)
+        // Try to decrement the grade (should work) /
         john.decrementGrade();
         std::cout << "After decrement: " << john << std::endl;
 
