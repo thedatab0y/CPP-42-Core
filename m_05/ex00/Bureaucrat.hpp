@@ -1,37 +1,42 @@
 #ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <string.h>
-//#include <stdexpect>
+# include <exception>
+# include <iostream>
+# include <string>
 
 class Bureaucrat {
-
-private: //private attributes for
-	const std::string name;
-	int grade;
-
-public:
-	Bureaucrat(const std::string& _name, int _grade);
-	~Bureaucrat(); //destructor
-
-	std::string getName() const; // Getter for the bureaucrat's grade
-	int getGrade() const; // Getter for the bureaucrat's grade
-
-	void incrementGrade();// Member function to increment the bureaucrat's grade
-	void decrementGrade();
-
-	class GradeTooHighException : public std::exception {
 	public:
-		virtual const char* what() const throw();
-	};
+		Bureaucrat(void); // Default constructor
+		Bureaucrat(const Bureaucrat& to_copy); // Copy constructor
+		Bureaucrat(std::string name, int grade); // Parameterized constructor
+		Bureaucrat &operator=(const Bureaucrat &original); // Assignment operator
+		~Bureaucrat(void); // Destructor
 
-	class GradeTooLowException : public std::exception{//inheriting from exception class
-	public:
-		virtual const char* what() const throw();//returns string
-	};
-    // Friend function to overload the insertion operator for printing
-	friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+		const std::string& getName(void) const; // Getter for name
+		int getGrade(void) const; // Getter for grade
+
+		void setGrade(int grade); // Setter for grade
+
+		void incrementGrade(void); // Increment the grade
+		void decrementGrade(void); // Decrement the grade
+
+		class GradeTooHighException : public std::exception // Custom exception for high grade
+		{
+			public:
+				virtual const char* what() const throw(); // Exception description
+		};
+		class GradeTooLowException : public std::exception // Custom exception for low grade
+		{
+			public:
+				virtual const char* what() const throw(); // Exception description
+		};
+
+	private:
+		const std::string name; // Name of the bureaucrat (constant)
+		int grade; // Grade of the bureaucrat
 };
+
+std::ostream &operator<<(std::ostream &stream, Bureaucrat &Bureaucrat); // Overloaded << operator for printing
 
 #endif
