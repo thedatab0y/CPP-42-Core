@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
 int main(void)
 {
 	std::cout << "OVERALL" << std::endl;
