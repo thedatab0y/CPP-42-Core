@@ -16,7 +16,7 @@ Bureaucrat::~Bureaucrat()
 {
 
 }
-
+//copy assigment operator allows chaining of assigments
 Bureaucrat& Bureaucrat::operator=( const Bureaucrat& rhs )
 {
 	if (this != &rhs)
