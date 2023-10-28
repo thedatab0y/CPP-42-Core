@@ -23,8 +23,6 @@ public:
 
 	void incrementGrade(); // increase the grade of the Bureaucrat
 	void decrementGrade(); // decrease the grade of the Bureaucrat
-
-	void        signForm( Form& form );
 	
 	// exception classes
 	class GradeTooHighException : public std::exception {
