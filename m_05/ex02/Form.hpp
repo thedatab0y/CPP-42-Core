@@ -10,5 +10,6 @@ class Form
 
 private:
 	const std::string _name;
+	bool _signed;
 
 }
