@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: busmanov <busmanov@student.42wolfsburg.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/11 16:06:36 by busmanov          #+#    #+#             */
+/*   Updated: 2024/02/11 17:55:27 by busmanov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( const std::string& name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat( const std::string& name, int grade) : _name(name)
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -8,17 +21,16 @@ Bureaucrat::Bureaucrat( const std::string& name, int grade) : _name(name), _grad
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat&src ) : _name(src._name), _grade(src._grade)
+Bureaucrat::Bureaucrat( const Bureaucrat& src) : _name(src._name), _grade(src._grade)
 {
-
+	
 }
-Bureaucrat::~Bureaucrat()
-{
 
+Bureaucrat::~Bureaucrat() {
+	
 }
-//copy assigment operator allows chaining of assigments
-Bureaucrat& Bureaucrat::operator=( const Bureaucrat& rhs )
-{
+
+Bureaucrat& Bureaucrat::operator=( const Bureaucrat& rhs) {
 	if (this != &rhs)
 		_grade = rhs.getGrade();
 	return *this;
@@ -33,19 +45,9 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::incrementGrade() {
-	if (_grade - 1 < 1)
+	if ( _grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
 	_grade--;
 }
 
-void Bureaucrat::decrementGrade() {
-	if (_grade + 1 > 150)
-		throw Bureaucrat::GradeTooLowException();
-	_grade++;
-}
-
-std::ostream& operator<<(std::ostream& o, const Bureaucrat& rhs)
-{
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
-	return o;
-}
+std::
