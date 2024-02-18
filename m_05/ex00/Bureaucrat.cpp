@@ -6,7 +6,7 @@
 /*   By: busmanov <busmanov@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 16:06:36 by busmanov          #+#    #+#             */
-/*   Updated: 2024/02/15 23:12:37 by busmanov         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:43:18 by busmanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,4 @@ void Bureaucrat::incrementGrade() {
 	_grade--;
 }
 
-std::ostream&
+std::ostream& operator<<
