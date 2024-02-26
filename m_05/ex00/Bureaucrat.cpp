@@ -35,7 +35,7 @@ Bureaucrat& Bureaucrat::operator=( const Bureaucrat& rhs) {
 		_grade = rhs.getGrade();
 	return *this;
 }
-	
+
 std::string Bureaucrat::getName() const {
 	return _name;
 }
@@ -50,4 +50,13 @@ void Bureaucrat::incrementGrade() {
 	_grade--;
 }
 
-std::ostream& operator<<
+void Bureaucrat::decrementGrade() {
+	if (_grade + 1 > 150)
+		throw Bureaucrat::GradeTooLowException();
+	_grade++;
+}
+
+std::ostream& operator<<(std::ostream& o, const Bureaucrat& rhs) {
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	return o;
+}
