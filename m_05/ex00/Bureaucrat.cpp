@@ -35,7 +35,7 @@ Bureaucrat& Bureaucrat::operator=( const Bureaucrat& rhs) {
 		_grade = rhs.getGrade();
 	return *this;
 }
-
+	
 std::string Bureaucrat::getName() const {
 	return _name;
 }
