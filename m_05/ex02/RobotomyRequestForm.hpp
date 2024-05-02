@@ -6,18 +6,18 @@
 class RobotomyRequestForm : public Form
 {
 private:
-	const std::string _target;
+	const std::string _target; // The target for the robotomy request
 
-	RobotomyRequestForm();
+	RobotomyRequestForm(); // Private default constructor to prevent instantiation without target
 
 public:
-	RobotomyRequestForm( const std::string& target);
-	RobotomyRequestForm( const RobotomyRequestForm& src);
-	~RobotomyRequestForm();
+	RobotomyRequestForm(const std::string& target); // Constructor that takes a target as parameter
+	RobotomyRequestForm(const RobotomyRequestForm& src); // Copy constructor
+	~RobotomyRequestForm(); // Destructor
 
-	RobotomyRequestForm &operator=( RobotomyRequestForm& rhs);
+	RobotomyRequestForm& operator=(RobotomyRequestForm& rhs); // Assignment operator
 
-	void execute( const Bureaucrat& execute) const;
+	void execute(const Bureaucrat& execute) const; // Execute the robotomy request
 };
 
 #endif
